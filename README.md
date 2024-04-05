@@ -2,7 +2,7 @@
 
 ![Push Source and Run Apex Tests](https://github.com/apex-enterprise-patterns/fflib-apex-mocks/workflows/Create%20a%20Scratch%20Org,%20Push%20Source%20and%20Run%20Apex%20Tests/badge.svg)
 
-ApexMocks is a mocking framework for the Salesforce Lightning Apex language. 
+ApexMocks is a mocking framework for the Salesforce Lightning Apex language.
 
 It derives its inspiration from the well known Java mocking framework [Mockito](https://code.google.com/p/mockito/)
 
@@ -16,12 +16,15 @@ It derives its inspiration from the well known Java mocking framework [Mockito](
 ApexMocks allows you to write tests to both verify behavior and stub dependencies.
 
 An assumption is made that you are using some form of [Dependency Injection](http://en.wikipedia.org/wiki/Dependency_injection) - for example passing dependencies via a constructor:
+
 ```Java
 public MyClass(ClassA.IClassA dependencyA, ClassB.IClassB dependencyB)
 ```
+
 This allows you to pass mock implementations of dependencies A and B when you want to unit test MyClass.
 
 Lets assume we've written our own list interface fflib_MyList.IList that we want to either verify or stub:
+
 ```Java
 public class fflib_MyList implements IList
 {
@@ -34,7 +37,9 @@ public class fflib_MyList implements IList
 	}
 }
 ```
+
 ### verify() behaviour verification
+
 ```Java
 // Given
 fflib_ApexMocks mocks = new fflib_ApexMocks();
@@ -63,6 +68,7 @@ EXPECTED ARGS: [[contains "user-one"]]
 ```
 
 ### when() dependency stubbing
+
 ```Java
 fflib_ApexMocks mocks = new fflib_ApexMocks();
 fflib_MyList.IList mockList = (fflib_MyList.IList)mocks.mock(fflib_MyList.class);
@@ -89,7 +95,9 @@ System.assertEquals(mockFormulaResult, acc.Your_Formula_Field__c);
 ```
 
 ## Stub API
+
 Using Salesforce's [Stub API](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_testing_stub_api.htm), stub objects are generated dynamically at run time.
+
 ```Java
 fflib_ApexMocks mocks = new fflib_ApexMocks();
 fflib_MyList mockList = (fflib_MyList)mocks.mock(fflib_MyList.class);
@@ -97,17 +105,17 @@ fflib_MyList mockList = (fflib_MyList)mocks.mock(fflib_MyList.class);
 
 ## Documentation
 
-* [ApexMocks Framework Tutorial](http://code4cloud.wordpress.com/2014/05/06/apexmocks-framework-tutorial/)
-* [Simple Dependency Injection](http://code4cloud.wordpress.com/2014/05/09/simple-dependency-injection/)
-* [ApexMocks Generator](http://code4cloud.wordpress.com/2014/05/15/using-apex-mocks-generator-to-create-mock-class-definitions/)
-* [Behaviour Verification](http://code4cloud.wordpress.com/2014/05/15/writing-behaviour-verification-unit-tests/)
-* [Stubbing Dependencies](http://code4cloud.wordpress.com/2014/05/15/stubbing-dependencies-in-a-unit-test/)
-* [Supported Features](http://code4cloud.wordpress.com/2014/05/15/apexmocks-supported-features/)
-* [New Improved apex-mocks-generator](http://code4cloud.wordpress.com/2014/06/27/new-improved-apex-mocks-generator/)
-* [ApexMocks Improvements - exception stubbing, base classes and more](http://code4cloud.wordpress.com/2014/11/05/apexmocks-improvements-exception-stubbing-inner-interfaces-and-mock-base-classes/)
-* [Matchers](http://superdupercode.blogspot.co.uk/2016/03/apex-mocks-matchers.html)
-* [ApexMock blogs from Jesse Altman](http://jessealtman.com/tag/apexmocks/)
-* [Order of calls verification](https://xonoxforce.wordpress.com/2017/03/26/inorder-verify/)
-* [Answering](https://xonoxforce.wordpress.com/2017/03/31/answering-with-apex-mocks/)
-* [Counters](https://xonoxforce.wordpress.com/2017/04/01/counters-in-apex-mocks-verifications/)
-* [Troubleshooting](https://salesforce.stackexchange.com/questions/252460/my-apexmocks-arent-working-what-could-be-wrong)
+-   [ApexMocks Framework Tutorial](http://code4cloud.wordpress.com/2014/05/06/apexmocks-framework-tutorial/)
+-   [Simple Dependency Injection](http://code4cloud.wordpress.com/2014/05/09/simple-dependency-injection/)
+-   [ApexMocks Generator](http://code4cloud.wordpress.com/2014/05/15/using-apex-mocks-generator-to-create-mock-class-definitions/)
+-   [Behaviour Verification](http://code4cloud.wordpress.com/2014/05/15/writing-behaviour-verification-unit-tests/)
+-   [Stubbing Dependencies](http://code4cloud.wordpress.com/2014/05/15/stubbing-dependencies-in-a-unit-test/)
+-   [Supported Features](http://code4cloud.wordpress.com/2014/05/15/apexmocks-supported-features/)
+-   [New Improved apex-mocks-generator](http://code4cloud.wordpress.com/2014/06/27/new-improved-apex-mocks-generator/)
+-   [ApexMocks Improvements - exception stubbing, base classes and more](http://code4cloud.wordpress.com/2014/11/05/apexmocks-improvements-exception-stubbing-inner-interfaces-and-mock-base-classes/)
+-   [Matchers](http://superdupercode.blogspot.co.uk/2016/03/apex-mocks-matchers.html)
+-   [ApexMock blogs from Jesse Altman](http://jessealtman.com/tag/apexmocks/)
+-   [Order of calls verification](https://xonoxforce.wordpress.com/2017/03/26/inorder-verify/)
+-   [Answering](https://xonoxforce.wordpress.com/2017/03/31/answering-with-apex-mocks/)
+-   [Counters](https://xonoxforce.wordpress.com/2017/04/01/counters-in-apex-mocks-verifications/)
+-   [Troubleshooting](https://salesforce.stackexchange.com/questions/252460/my-apexmocks-arent-working-what-could-be-wrong)
